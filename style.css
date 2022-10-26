@@ -1,0 +1,178 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(184, 184, 238);
+  color: rgb(22, 22, 22);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 3em;
+  background-color: #f2f2f2;
+}
+nav .title {
+  font-size: 1.2rem;
+  margin-block: 0.6em;
+  color: #226;
+}
+nav button {
+  padding: 0.75em 1.5em;
+  border: 0;
+  color: #226;
+  background-color: rgb(154, 226, 67);
+  transition: background-color 250ms ease, color 250ms ease;
+}
+nav button:hover {
+  color: #f2f2f2;
+  background-color: rgb(63, 54, 186);
+}
+form {
+  width: 70%;
+  min-width: 355px;
+  max-width: 600px;
+  margin-inline: auto;
+}
+form h1 {
+  text-align: center;
+  font-weight: 500;
+}
+form label {
+  font-size: 0.9rem;
+}
+form input {
+  width: 150px;
+  padding: 0.5em;
+}
+form select {
+  padding: 0.5em;
+}
+form button {
+  padding: 0.7em 3em;
+  border-radius: 10px;
+  background-color: rgb(154, 226, 67);
+  color: #226;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+form .flexrow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+form .flexrow .innerflex {
+  display: flex;
+  width: 48%;
+  justify-content: space-between;
+  align-items: center;
+}
+form .flexrow .innerflex input,
+form .flexrow .innerflex select {
+  max-width: 60%;
+  width: 60%;
+}
+
+form .field2 fieldset label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexrow.sittings {
+  justify-content: start;
+  gap: 3em;
+}
+
+fieldset {
+  border-color: rgba(111, 107, 235, 0.447);
+}
+form > fieldset {
+  display: none;
+}
+form > fieldset.active {
+  display: block;
+}
+#firstErr {
+  color: rgb(255, 70, 70);
+  height: 30px;
+  font-size: 0.8rem;
+}
+#secondErr {
+  color: rgb(255, 70, 70);
+  height: 30px;
+  font-size: 0.8rem;
+}
+
+form > fieldset.field-one.active > * {
+  margin-top: 15px;
+}
+.result-field {
+  position: relative;
+  border-radius: 6px;
+  margin-bottom: 1em;
+}
+div.unallow {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(111, 107, 235, 0.447);
+  color: #226;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  backdrop-filter: blur(5px);
+  cursor: not-allowed;
+}
+
+.nicespace {
+  width: 49%;
+  padding: 0 1em;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8em;
+  border-bottom: 2px solid #226;
+}
+
+#openOlevelBtn.hide{
+    display: none;
+}
+
+#display{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 40%;
+    border-radius: .7em;
+    background-color: #f3f3f3;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+#grayout{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(40, 40, 65, 0.641);
+    z-index: 10;
+}
+#restart{
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 1000;
+}

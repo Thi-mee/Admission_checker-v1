@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./pageSetup.js"></script>
+    <script defer src="./admission_check.js"></script>
+</head>
+<body>
+    
+    <nav>
+        <div class="title">Thimee Education ...</div>
+        <button>Back to Dashboard</button>
+    </nav>
+    
+    <form action="">
+        <h1>Admission Checker</h1>
+        <fieldset class="active field-one" id="formIntro">
+            <legend>Personal Information</legend>
+            <div class="flexrow">
+                <div class="innerflex">
+                    <label for="fname">First Name: </label>
+                    <input type="text" id="fname" required>
+                </div>
+                <div class="innerflex">
+                    <label for="lname">LastName: </label>
+                    <input type="text" id="lname" required>
+                </div>
+            </div>
+            <div class="flexrow">
+                <!-- Label and Input for age -->
+                <div class="innerflex">
+                    <label for="age">Age: </label>
+                    <select name="age" id="age">
+                        <option selected value="">--your--age--</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                    </select>
+                </div>
+                <!-- Label and Input for state of Origin -->
+                <div class="innerflex">
+                    <label for="SOO">State of Origin: </label>
+                    <select name="soo" id="SOO" required>
+                        <option selected value="">--Select State--</option>
+                        <option value="Outside">Outside Nigeria</option>
+                        <option value="Abuja">Abuja</option>
+                        <option value="Abia">Abia</option>
+                        <option value="Adamawa">Adamawa</option>
+                        <option value="Akwa Ibom">Akwa Ibom</option>
+                        <option value="Anambra">Anambra</option>
+                        <option value="Bauchi">Bauchi</option>
+                        <option value="Bayelsa">Bayelsa</option>
+                        <option value="Benue">Benue</option>
+                        <option value="Borno">Borno</option>
+                        <option value="Cross River">Cross River</option>
+                        <option value="Delta">Delta</option>
+                        <option value="Ebonyi">Ebonyi</option>
+                        <option value="Edo">Edo</option>
+                        <option value="Ekiti">Ekiti</option>
+                        <option value="Enugu">Enugu</option>
+                        <option value="Gombe">Gombe</option>
+                        <option value="Imo">Imo</option>
+                        <option value="Jigawa">Jigawa</option>
+                        <option value="Kaduna">Kaduna</option>
+                        <option value="Kano">Kano</option>
+                        <option value="Katsina">Katsina</option>
+                        <option value="Kebbi">Kebbi</option>
+                        <option value="Kogi">Kogi</option>
+                        <option value="Kwara">Kwara</option>
+                        <option value="Lagos">Lagos</option>
+                        <option value="Nassarawa">Nassarawa</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Ogun">Ogun</option>
+                        <option value="Ondo">Ondo</option>
+                        <option value="Osun">Osun</option>
+                        <option value="Oyo">Oyo</option>
+                        <option value="Plateau">Plateau</option>
+                        <option value="Rivers">Rivers</option>
+                        <option value="Sokoto">Sokoto</option>
+                        <option value="Taraba">Taraba</option>
+                        <option value="Yobe">Yobe</option>
+                        <option value="Zamfara">Zamfara</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flexrow">
+                <div id="firstErr"></div>
+                <button type="button" id="nextBtn">Next</button>
+            </div>
+        </fieldset>
+        <fieldset class="field2" id="mainForm">
+            <legend>Scores</legend>
+            
+            <div class="flexrow">
+                <div class="innerflex">
+                    <label for="utmeScore">UTME Score</label>
+                    <input type="number" name="utmeScore" id="utmeScore" min="0" max="400">
+                </div>
+                <div class="innerflex">
+                    <label for="putmeScore">Post UTME Score</label>
+                    <input type="number" name="putmeScore" id="putmeScore" max="20" min="0">
+                </div>
+            </div>
+            <div class="flexrow">
+
+                <div id="ume-display" class="nicespace"></div>
+                <div id="pume-display" class="nicespace"></div>
+                
+            </div>
+            <button type="button" id="openOlevelBtn">Qualified? Click here</button>
+            <fieldset id="resultField" class="result-field">
+                <div class="unallow" id="blocker">Fill Ume and Utme Scores first</div>
+                <legend>O level Result</legend>
+
+                <div class="flexrow sittings">
+
+                    <label for="">How many sittings</label>
+                    <select name="" id="noOfSittings">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                
+                <div class="flexrow">
+                    <div class="innerflex">
+                        <label>Subject: </label>
+                        <select name="" id="" class="subjects" required>
+                            <option value="Maths">Math</option>    
+                        </select>
+                    </div>
+                    <div class="innerflex">
+                        <label for="">Grade: </label>
+                        <select name="" id="" class="grades" required></select>
+                    </div>
+                </div>
+                
+                <div class="flexrow">
+                    <div class="innerflex">
+                        <label>Subject: </label>
+                        <select name="" id="" class="subjects" required>
+                            <option value="English">English</option>    
+                        </select>
+                    </div>
+                    <div class="innerflex">
+                        <label for="">Grade: </label>
+                        <select name="" id="" class="grades" required></select>
+                    </div>
+                </div>
+                
+                <div class="flexrow">
+                    <div class="innerflex">
+                        <label>Subject: </label>
+                        <select name="" id="" class="subjects" required>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Biology">Biology</option>
+                            <option value="Commerce">Commerce</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="History">History</option>
+                            <option value="Literature">Literature</option>
+                            <option value="Economics">Economics</option>
+                        </select>
+                    </div>
+                    <div class="innerflex">
+                        <label for="">Grade: </label>
+                        <select name="" id="" class="grades" required></select>
+                    </div>
+                </div>
+                
+                <div class="flexrow">
+                    <div class="innerflex">
+                        <label>Subject: </label>
+                        <select name="" id="" class="subjects" required>
+                            <option value="Biology">Biology</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Commerce">Commerce</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="History">History</option>
+                            <option value="Literature">Literature</option>
+                            <option value="Economics">Economics</option>
+                        </select>
+                    </div>
+                    <div class="innerflex">
+                        <label for="">Grade</label>
+                        <select name="" id="" class="grades" required></select>
+                    </div>
+                </div>
+
+                <div class="flexrow">
+                    <div class="innerflex">
+                        <label>Subject: </label>
+                        <select name="" id="" class="subjects" required>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Biology">Biology</option>
+                            <option value="Commerce">Commerce</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="History">History</option>
+                            <option value="Literature">Literature</option>
+                            <option value="Economics">Economics</option>
+                        </select>
+                    </div>
+                    <div class="innerflex">
+                        <label for="">Grade</label>
+                        <select name="" id="" class="grades" required></select>
+                    </div>
+                </div>
+                <div class="flex" id="ctab-init">
+                    <button type="button" id="prevBtn">Back</button>
+                </div>
+
+
+
+            </fieldset>
+            <button type="button" id="submit-button">Check Admission Status</button>
+        </fieldset>
+    </form>
+    <div id="display" class="display">
+    </div>
+    <div id="grayout"></div>
+    <button type="button" class="restart" id="restart">RESTART</button>
+</body>
+</html>
