@@ -38,9 +38,8 @@ function Candidate(name, age, stateOfOrigin, utmeScore, postUtmeScore, oLevelGra
     this.noOfSittings = noOfSittings
     this.stateOfOrigin = stateOfOrigin
     this.fallsWithinCatchment = ["Ondo", "Osun", "Oyo", "Ekiti", "Lagos", "Ogun", "Edo", "Niger"].includes(this.stateOfOrigin)
-    this.areAllCredits = this.oLevelGrades.every(grade => {
-        return (grade == "A1" || grade == "B2" || grade == "B3" ||
-            grade == "C4" || grade == "C5" || grade == "C6")
+    this.areAllCredits = this.oLevelScores.every(score => {
+        return score >= 5
     })
     this.oLevelTotalScore = Number(((this.oLevelScores.reduce((a, b) => a + b) / (this.oLevelScores.length * 10)) * 30).toFixed(2))
     this.totalScore = (this.utmeScore / 8) + this.oLevelTotalScore + this.postUtmeScore;
@@ -75,6 +74,8 @@ function Candidate(name, age, stateOfOrigin, utmeScore, postUtmeScore, oLevelGra
         document.getElementById('restart').style.display = "block"
     };
 }
+
+
 document.getElementById('nextBtn').addEventListener('click', (e) => {
     
     e.preventDefault()
@@ -101,7 +102,7 @@ document.getElementById('nextBtn').addEventListener('click', (e) => {
     for (select of firstSelects) {
         if (select.value === ""){
             select.style.backgroundColor = "#eec"
-            firstErrorBox.innerHTML = `Bullshit! You have to choose an option in the dropdown`
+            firstErrorBox.innerHTML = `You have to choose an option in the dropdown`
             return
         }
     }
@@ -115,6 +116,11 @@ document.getElementById('nextBtn').addEventListener('click', (e) => {
 firstInputs.forEach(input => {
     input.addEventListener("input", () => {
         input.style.backgroundColor = "#fff"
+    })
+})
+gradesSelect.forEach(select => {
+    select.addEventListener('change', () => {
+        select.style.backgroundColor = "#fff"
     })
 })
 document.getElementById('prevBtn').addEventListener('click', () => {
@@ -170,24 +176,24 @@ openBlockerBtn.addEventListener('click', () => {
 
 function checkInputs(){
 
+    let i = 0
     for (select of gradesSelect){
-
         if (!select.value ){
-            console.log("YOOOOOO!")
-            return 0
+            i++    
+            select.style.backgroundColor = '#ecc'
         }
     }
-
+    if (i > 0){
+        document.getElementById('gradeErr').innerText = '⚠ Fill all grades'
+        return 0
+    }
     
-
     return 1;
 }
 
 document.getElementById("submit-button").addEventListener('click', (e) => {
-    e.preventDefault()
     
     if (!checkInputs()){
-        console.log("invalid value")
         return 0
     }
 
@@ -196,7 +202,7 @@ document.getElementById("submit-button").addEventListener('click', (e) => {
         grds.push(individualGradeselect.value)
     }
 
-    newCandidate = new Candidate(
+    let newCandidate = new Candidate(
         `${firstInputs[0].value} ${firstInputs[1].value}`,
         parseInt(firstSelects[0].value),
         firstSelects[1].value,
@@ -205,24 +211,15 @@ document.getElementById("submit-button").addEventListener('click', (e) => {
         grds,
         parseFloat(noOfSittings.value)
     )
-    console.log(newCandidate)
     newCandidate.verify()
 })
-{
-    // createCandidate()
-}
 
 document.getElementById("restart").addEventListener('click', ()=> {
+    firstInputs[0].value = ""
+    firstInputs[1].value = ""
+    firstSelects[1].value = ""
+    firstSelects[0].value = ""
+    utmeScore.value = ""
+    postUtmeScore.value = ""
     location.reload()
 })
-
-
-
-// let candidate1 = new Candidate(
-//     "Ayo", 12,
-//     245, 14,
-//     [
-//         "A1", "B2", "C4", "C4", "C4", "A1", "C4", "C5", "C4"
-//     ], 1, "Ondo"
-// )
-
